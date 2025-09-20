@@ -1,12 +1,12 @@
 import React, { createContext, useState } from "react";
 
-type BackgourndContextType = {
+type BackgroundContextType = {
   isBackgroundHidden: boolean;
   setIsBackgroundHidden: (isBackgroundHidden: boolean) => void;
 };
 
 export const BackgroundContext = createContext<
-  BackgourndContextType | undefined
+  BackgroundContextType | undefined
 >(undefined);
 
 export const BackgroundProvider = ({
