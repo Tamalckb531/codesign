@@ -1,6 +1,5 @@
 import CodeEditor from "@/components/CodeEditor";
 import Dock from "@/components/Dock";
-import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
