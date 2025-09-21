@@ -8,22 +8,23 @@ interface DarkModeProviderProps {
 }
 
 const DarkModeProvider: React.FC<DarkModeProviderProps> = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean | null>(false);
+  const [isDarkMode, setIsDarkMode] = useState<boolean | null>(true);
 
-  useEffect(() => {
-    const storedPreference = localStorage.getItem("theme");
-    const prefersDarkMode = storedPreference === "dark";
+  //! Issue
+  // useEffect(() => {
+  //   const storedPreference = localStorage.getItem("theme");
+  //   const prefersDarkMode = storedPreference === "dark";
 
-    setIsDarkMode(prefersDarkMode);
+  //   setIsDarkMode(prefersDarkMode);
 
-    if (prefersDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+  //   if (prefersDarkMode) {
+  //     document.documentElement.classList.add("dark");
+  //   } else {
+  //     document.documentElement.classList.remove("dark");
+  //   }
 
-    document.documentElement.style.overflowY = "auto";
-  }, []);
+  //   document.documentElement.style.overflowY = "auto";
+  // }, []);
 
   const toggleDarkMode = () => {
     setIsDarkMode((prev) => {
