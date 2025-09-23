@@ -66,9 +66,9 @@ const Dock = () => {
   };
 
   return (
-    <section className="fixed bottom-0 w-full max-sm:overflow-x-auto flex justify-center ">
+    <section className="w-full flex justify-center ">
       <div className="flex justify-center w-fit min-w-[40vw] max-sm:min-w-full max-sm:w-full max-sm:justify-start ">
-        <div className="flex items-center h-20 px-10 rounded-t-xl bg-opacity-10 backdrop-blur-lg border dark:border-white/20 dark:shadow-none text-white">
+        <div className="flex items-center h-20 px-10  text-white">
           <PopupDialog
             setIsCopied={setIsCopied}
             isCopied={isCopied}
@@ -202,27 +202,6 @@ const Dock = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
-            <div className="space-y-1 flex flex-col">
-              <Label className="text-xs" htmlFor="darkMode">
-                Remove BG
-              </Label>
-              <Switch
-                checked={isBackgroundHidden}
-                onCheckedChange={setIsBackgroundHidden}
-                className="dark:data-[state=checked]:bg-blue-500"
-              />
-            </div>
-            //! Issue
-            {/* <div className="space-y-1 flex flex-col">
-              <Label className="text-xs" htmlFor="darkMode">
-                Dark Mode
-              </Label>
-              <Switch
-                checked={isDarkMode}
-                onCheckedChange={toggleDarkMode}
-                className="data-[state=checked]:bg-blue-500 data-[state=unchecked]:bg-black"
-              />
-            </div> */}
           </div>
         </div>
       </div>
