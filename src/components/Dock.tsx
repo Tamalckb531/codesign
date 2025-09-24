@@ -64,7 +64,7 @@ const Dock = () => {
   };
 
   return (
-    <section className="w-full flex justify-center mt-8 ">
+    <section className="w-full flex justify-center mt-8">
       <div className="flex justify-center w-fit min-w-[40vw] max-sm:min-w-full max-sm:w-full max-sm:justify-start ">
         <div className="flex items-center h-20 px-10  text-white">
           <div className="flex border px-2 py-1 rounded-2xl items-center justify-center gap-6 max-sm:gap-6">
@@ -143,6 +143,7 @@ const Dock = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="javascript">JavaScript</SelectItem>
+                  <SelectItem value="typescript">TypeScript</SelectItem>
                   <SelectItem value="bro">Bro</SelectItem>
                   <SelectItem value="python">Python</SelectItem>
                   <SelectItem value="html">HTML</SelectItem>

@@ -23,7 +23,7 @@ const CodeEditor = () => {
   console.log(gradient);
 
   return (
-    <div className=" flex w-full flex-col gap-6 items-center pb-4 mt-20 justify-center text-white max-sm:px-2 mb-8">
+    <div className=" flex w-full flex-col gap-6 items-center pb-4 mt-8 justify-center text-white max-sm:px-2 mb-8">
       <div
         ref={setPreviewRef}
         className={`w-fit min-w-[20vw] max-sm:w-full py-8 px-10 max-sm:px-2 max-sm:p-2 shadow-lg `}
@@ -52,11 +52,11 @@ const CodeEditor = () => {
             showLineNumbers
           >
             {code ||
-              `import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+              `import { Style, type Chill } from "codesign"
+import { code } from "you"
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+export function Share(mode: Chill) {
+  return Style(mode(code))
 }`}
           </SyntaxHighlighter>
         </div>

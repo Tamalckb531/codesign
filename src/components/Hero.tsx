@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className=" text-white w-full flex  flex-col gap-2 mt-32 items-center justify-center">
+    <div className=" text-white w-full flex  flex-col gap-2 mt-36 items-center justify-center">
       <div className="flex items-center">
         <p className=" font-bold text-7xl bg-gradient-to-r from-[#d9a7c7]  to-[#fffcdc] bg-clip-text text-transparent">
           Codesign

@@ -14,7 +14,7 @@ export default function FontSizeProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [fontSize, setFontSize] = useState(14);
+  const [fontSize, setFontSize] = useState(20);
   return (
     <fontSizeContext.Provider value={{ fontSize, setFontSize }}>
       {children}
