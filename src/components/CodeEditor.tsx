@@ -12,7 +12,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const CodeEditor = () => {
-  const { code, setCode } = useCode();
+  const { code } = useCode();
   const { gradient } = useGradient();
   const { theme } = useTheme();
   const { language } = useLanguage();

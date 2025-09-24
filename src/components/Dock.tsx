@@ -10,7 +10,6 @@ import copyAsImage from "@/utils/copyAsImage";
 import exportAsImage from "@/utils/exportAsImage";
 import React, { useState } from "react";
 import { toast } from "sonner";
-import { Label } from "./ui/label";
 import {
   Select,
   SelectContent,
@@ -29,16 +28,17 @@ import {
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
 import { ALargeSmall, Code, Palette, Shirt } from "lucide-react";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
+import { Textarea } from "./ui/textarea";
+import { useCode } from "@/hooks/useCode";
 
 const Dock = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+  const { code, setCode } = useCode();
   const [isCopied, setIsCopied] = useState<boolean>(false);
-  const [cloudLink] = useState<string>("");
   const { gradient, setGradient } = useGradient();
   const { setTheme } = useTheme();
   const { setLanguage } = useLanguage();
   const { fontSize, setFontSize } = useFontSize();
-  const { isBackgroundHidden, setIsBackgroundHidden } = useBackground();
   const { getPreviewRef } = useCodePreview();
 
   const handleExportImage = () => {
@@ -200,12 +200,28 @@ const Dock = () => {
               </DropdownMenu>
             </div>
             <div className="flex flex-col">
-              <Button
-                variant="secondary"
-                className="text-lg text-white hover:text-black p-3 h-8 bg-transparent border-none"
-              >
-                Add Code
-              </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="secondary"
+                    className="text-lg text-white hover:text-black p-3 h-8 bg-transparent border-none"
+                  >
+                    Add Code
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className=" bg-black text-white border-none text-center">
+                  <DialogTitle className=" mb-2">
+                    {" "}
+                    Please Add Your Code{" "}
+                  </DialogTitle>
+                  <Textarea
+                    className="w-full h-40 p-4 rounded-md border-none "
+                    value={code}
+                    onChange={(e) => setCode(e.target.value)}
+                    placeholder="Paste your code here..."
+                  />
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </div>
