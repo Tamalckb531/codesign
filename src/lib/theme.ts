@@ -23,6 +23,13 @@ import {
   cb,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 
+import {
+  ascetic,
+  atelierDuneLight,
+  atelierCaveDark,
+  androidstudio,
+  hopscotch,
+} from "react-syntax-highlighter/dist/esm/styles/hljs";
 export const themes: Record<string, any> = {
   coldarkDark,
   okaidia,
@@ -46,4 +53,9 @@ export const themes: Record<string, any> = {
   lucario,
   coyWithoutShadows,
   twilight,
+  ascetic,
+  atelierCaveDark,
+  atelierDuneLight,
+  androidstudio,
+  hopscotch,
 };
