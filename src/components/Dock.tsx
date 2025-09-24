@@ -10,7 +10,6 @@ import copyAsImage from "@/utils/copyAsImage";
 import exportAsImage from "@/utils/exportAsImage";
 import React, { useState } from "react";
 import { toast } from "sonner";
-import PopupDialog from "./PopupDialog";
 import { Label } from "./ui/label";
 import {
   Select,
@@ -29,7 +28,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { Switch } from "./ui/switch";
+import { ALargeSmall, Code, Palette, Shirt } from "lucide-react";
 
 const Dock = () => {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
@@ -41,7 +40,6 @@ const Dock = () => {
   const { fontSize, setFontSize } = useFontSize();
   const { isBackgroundHidden, setIsBackgroundHidden } = useBackground();
   const { getPreviewRef } = useCodePreview();
-  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   const handleExportImage = () => {
     const node = getPreviewRef();
@@ -66,29 +64,18 @@ const Dock = () => {
   };
 
   return (
-    <section className="w-full flex justify-center ">
+    <section className="w-full flex justify-center mt-8 ">
       <div className="flex justify-center w-fit min-w-[40vw] max-sm:min-w-full max-sm:w-full max-sm:justify-start ">
         <div className="flex items-center h-20 px-10  text-white">
-          <PopupDialog
-            setIsCopied={setIsCopied}
-            isCopied={isCopied}
-            cloudLink={cloudLink}
-            isDialogOpen={isDialogOpen}
-            setIsDialogOpen={setIsDialogOpen}
-          />
-
-          <div className="flex items-center gap-12 max-sm:gap-6">
-            <div className="space-y-1">
-              <Label className="text-xs" htmlFor="gradient">
-                Gradient
-              </Label>
-
+          <div className="flex border px-2 py-1 rounded-2xl items-center justify-center gap-6 max-sm:gap-6">
+            <div className="space-y-1 flex items-center justify-center gap-2 rounded-md p-2">
+              <Palette size={25} />
               <Select
                 onValueChange={(value: string) => {
                   setGradient(value);
                 }}
               >
-                <SelectTrigger className="border-black dark:border-white space-x-2 w-16 h-6 flex items-center justify-center">
+                <SelectTrigger className="border-none w-16 h-6 flex items-center justify-center bg-transparent">
                   <div
                     className="w-4 h-4 rounded-full"
                     style={{ background: gradient }}
@@ -119,19 +106,17 @@ const Dock = () => {
                 </SelectContent>
               </Select>
             </div>
-            <div className="space-y-1">
-              <Label className="text-xs" htmlFor="theme">
-                Theme
-              </Label>
+            <div className="space-y-1 flex items-center justify-center gap-2 rounded-md p-2">
+              <Shirt size={25} />
               <Select
                 onValueChange={(value: string) => {
                   setTheme(themes[value]);
                 }}
               >
-                <SelectTrigger className="w-28 h-6 text-xs text-center border-black dark:border-white">
+                <SelectTrigger className="w-28 h-6 text-xs text-center border-none !text-white">
                   <SelectValue
                     placeholder="ColdarkDark"
-                    className="text-center"
+                    className="text-center !text-white "
                   />
                 </SelectTrigger>
                 <SelectContent>
@@ -143,17 +128,18 @@ const Dock = () => {
                 </SelectContent>
               </Select>
             </div>
-            <div className="space-y-1">
-              <Label className="text-xs" htmlFor="language">
-                Language
-              </Label>
+            <div className="space-y-1 flex items-center justify-center gap-2 rounded-md p-2">
+              <Code />
               <Select
                 onValueChange={(value: string) => {
                   setLanguage(value);
                 }}
               >
-                <SelectTrigger className="w-[100px] h-6 text-xs border-black dark:border-white">
-                  <SelectValue placeholder="JavaScript" />
+                <SelectTrigger className="w-[100px] h-6 text-xs border-none !text-white">
+                  <SelectValue
+                    placeholder="JavaScript"
+                    className="!text-white"
+                  />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="javascript">JavaScript</SelectItem>
@@ -168,26 +154,23 @@ const Dock = () => {
                 </SelectContent>
               </Select>
             </div>
-            <div className="space-y-1">
-              <Label className="text-xs" htmlFor="fontSize">
-                Font Size
-              </Label>
+            <div className="space-y-1 flex items-center justify-center gap-2 rounded-md p-2">
+              <ALargeSmall />
               <Input
                 type="number"
                 value={fontSize}
                 onChange={(e) =>
                   setFontSize(parseInt(e.target.value, 10) || 16)
                 }
-                className="w-16 text-center h-6 font-xs border-black dark:border-white"
+                className="w-18 text-center h-8 p-2 font-xs border-none outline-none"
               />
             </div>
-            <div className="space-y-1 flex flex-col mb-[-5px]">
-              <Label className="text-xs">Export</Label>
+            <div className="flex flex-col">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button
-                    variant="outline"
-                    className="px-3 py-1 text-xs h-6 bg-transparent border-black dark:border-white"
+                    variant="default"
+                    className="text-lg p-3 h-8 bg-transparent border-none"
                   >
                     Export
                   </Button>
@@ -201,6 +184,14 @@ const Dock = () => {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
+            </div>
+            <div className="flex flex-col">
+              <Button
+                variant="secondary"
+                className="text-lg text-white hover:text-black p-3 h-8 bg-transparent border-none"
+              >
+                Add Code
+              </Button>
             </div>
           </div>
         </div>
