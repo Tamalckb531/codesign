@@ -1,23 +1,22 @@
 "use client";
 
 import { useBackground } from "@/hooks/useBackground";
+import { useCode } from "@/hooks/useCode";
 import { useCodePreview } from "@/hooks/useCodePreview";
 import { useFontSize } from "@/hooks/useFontSize";
 import { useGradient } from "@/hooks/useGradient";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useTheme } from "@/hooks/useTheme";
 import React, { useState } from "react";
-import { Textarea } from "./ui/textarea";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const CodeEditor = () => {
-  const [code, setCode] = useState<string>("");
+  const { code, setCode } = useCode();
   const { gradient } = useGradient();
   const { theme } = useTheme();
   const { language } = useLanguage();
   const { fontSize } = useFontSize();
-  const { isBackgroundHidden } = useBackground();
   const { setPreviewRef } = useCodePreview();
 
   console.log(gradient);
@@ -51,13 +50,7 @@ const CodeEditor = () => {
             wrapLongLines
             showLineNumbers
           >
-            {code ||
-              `import { Style, type Chill } from "codesign"
-import { code } from "you"
-
-export function Share(mode: Chill) {
-  return Style(mode(code))
-}`}
+            {code}
           </SyntaxHighlighter>
         </div>
       </div>

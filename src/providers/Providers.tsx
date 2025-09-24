@@ -7,6 +7,7 @@ import LanguageProvider from "@/context/LanguageContext";
 import FontSizeProvider from "@/context/fontSizeContext";
 import { BackgroundProvider } from "@/context/backgroundContext";
 import { CodePreviewProvider } from "@/context/codePreviewContext";
+import { CodeProvider } from "@/context/codeContext";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -16,7 +17,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
           <FontSizeProvider>
             <DarkModeProvider>
               <BackgroundProvider>
-                <CodePreviewProvider>{children}</CodePreviewProvider>
+                <CodeProvider>
+                  <CodePreviewProvider>{children}</CodePreviewProvider>
+                </CodeProvider>
               </BackgroundProvider>
             </DarkModeProvider>
           </FontSizeProvider>
