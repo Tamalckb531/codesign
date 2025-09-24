@@ -20,22 +20,13 @@ const CodeEditor = () => {
   const { isBackgroundHidden } = useBackground();
   const { setPreviewRef } = useCodePreview();
 
-  return (
-    <div className=" flex w-full flex-col gap-6 items-center pb-4 mt-20 justify-center text-white max-sm:px-2 mb-8 border">
-      <div className=" w-full max-w-lg space-y-4 max-sm:space-y-4">
-        <Textarea
-          className="w-full h-40 p-4 rounded-md bg-white dark:text-white text-black bg-opacity-10 backdrop-blur-lg border dark:border-white/20 dark:shadow-none"
-          value={code}
-          onChange={(e) => setCode(e.target.value)}
-          placeholder="Paste your code here..."
-        />
-      </div>
+  console.log(gradient);
 
+  return (
+    <div className=" flex w-full flex-col gap-6 items-center pb-4 mt-20 justify-center text-white max-sm:px-2 mb-8">
       <div
         ref={setPreviewRef}
-        className={`w-fit min-w-[20vw] max-sm:w-full py-8 px-10 max-sm:px-2 max-sm:p-2 shadow-lg ${
-          isBackgroundHidden ? "!bg-none shadow-none" : ""
-        }`}
+        className={`w-fit min-w-[20vw] max-sm:w-full py-8 px-10 max-sm:px-2 max-sm:p-2 shadow-lg `}
         style={{ background: gradient }}
       >
         <div className=" relative">
