@@ -143,14 +143,27 @@ const Dock = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="javascript">JavaScript</SelectItem>
+                  <SelectItem value="bro">Bro</SelectItem>
                   <SelectItem value="python">Python</SelectItem>
                   <SelectItem value="html">HTML</SelectItem>
                   <SelectItem value="css">CSS</SelectItem>
+                  <SelectItem value="sass">Sass</SelectItem>
                   <SelectItem value="java">Java</SelectItem>
                   <SelectItem value="rust">Rust</SelectItem>
                   <SelectItem value="go">Go</SelectItem>
-                  <SelectItem value="bash">C++</SelectItem>
-                  <SelectItem value="c++">Bash</SelectItem>
+                  <SelectItem value="bash">Bash</SelectItem>
+                  <SelectItem value="c">C</SelectItem>
+                  <SelectItem value="cpp">C++</SelectItem>
+                  <SelectItem value="csharp">C#</SelectItem>
+                  <SelectItem value="dart">Dart</SelectItem>
+                  <SelectItem value="fortran">Fortran</SelectItem>
+                  <SelectItem value="json">Json</SelectItem>
+                  <SelectItem value="jsx">React(js)</SelectItem>
+                  <SelectItem value="tsx">React(ts)</SelectItem>
+                  <SelectItem value="zig">Zig</SelectItem>
+                  <SelectItem value="swift">Swift</SelectItem>
+                  <SelectItem value="solidity">Solidity</SelectItem>
+                  <SelectItem value="brainfuck">Brainfuck</SelectItem>
                 </SelectContent>
               </Select>
             </div>
