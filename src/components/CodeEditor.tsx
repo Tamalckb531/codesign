@@ -1,13 +1,12 @@
 "use client";
 
-import { useBackground } from "@/hooks/useBackground";
 import { useCode } from "@/hooks/useCode";
 import { useCodePreview } from "@/hooks/useCodePreview";
 import { useFontSize } from "@/hooks/useFontSize";
 import { useGradient } from "@/hooks/useGradient";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useTheme } from "@/hooks/useTheme";
-import React, { useState } from "react";
+import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
@@ -18,8 +17,6 @@ const CodeEditor = () => {
   const { language } = useLanguage();
   const { fontSize } = useFontSize();
   const { setPreviewRef } = useCodePreview();
-
-  console.log(gradient);
 
   return (
     <div className=" flex w-full flex-col gap-6 items-center pb-4 mt-8 justify-center text-white max-sm:px-2 mb-8">

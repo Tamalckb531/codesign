@@ -1,14 +1,12 @@
 "use client";
-import { useBackground } from "@/hooks/useBackground";
 import { useCodePreview } from "@/hooks/useCodePreview";
-import { useDarkMode } from "@/hooks/useDarkMode";
 import { useFontSize } from "@/hooks/useFontSize";
 import { useGradient } from "@/hooks/useGradient";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useTheme } from "@/hooks/useTheme";
 import copyAsImage from "@/utils/copyAsImage";
 import exportAsImage from "@/utils/exportAsImage";
-import React, { useState } from "react";
+import React from "react";
 import { toast } from "sonner";
 import {
   Select,
@@ -34,7 +32,6 @@ import { useCode } from "@/hooks/useCode";
 
 const Dock = () => {
   const { code, setCode } = useCode();
-  const [isCopied, setIsCopied] = useState<boolean>(false);
   const { gradient, setGradient } = useGradient();
   const { setTheme } = useTheme();
   const { setLanguage } = useLanguage();
@@ -54,9 +51,7 @@ const Dock = () => {
     if (node) {
       try {
         await copyAsImage(node);
-        setIsCopied(true);
         toast.success("Image copied to clipboard");
-        setTimeout(() => setIsCopied(false), 1500);
       } catch {
         console.log("failed to copy image");
       }
